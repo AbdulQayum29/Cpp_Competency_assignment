@@ -28,7 +28,7 @@ int car :: accelarate(int speed){
     {
         speed=speed+10;
     }
-    cout<<"the speed is:"<<speed<<endl;
+    cout<<"The Accelerated speed is:"<<speed<<endl;
 }
 
 int car :: brake(int speed){
@@ -37,18 +37,27 @@ int car :: brake(int speed){
         if(speed>0){
         speed=speed-10;}
     }
-    cout<<"the speed is:"<<speed<<endl;
+    cout<<"The Decelerated speed is:"<<speed<<endl;
 }
 
 int main() {
-
-    car a;
-    a.release_year=2019;
-    a.customer = "toyota";
-    a.speed= 40;
-
-    a.printinfo();
-    a.accelarate(a.speed);
-    a.brake(a.speed);
+    int n;
+    cout<<"enter no of inputs: ";
+    cin>>n;
+    car arr[n];
+    for(int i=0;i<n;i++){
+        cout<<"relyear=";
+        cin>>arr[i].release_year;
+        cout<<"customer=";
+        cin>>arr[i].customer;
+        cout<<"speed=";
+        cin>>arr[i].speed;
+    };
+    
+    for(int i=0;i<n;i++){
+    arr[i].printinfo();
+    arr[i].accelarate(arr[i].speed);
+    arr[i].brake(arr[i].speed);
+    }
 
 }
