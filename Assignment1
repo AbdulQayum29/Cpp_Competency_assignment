@@ -2,8 +2,8 @@
 using namespace std;
 
 class car{
-public:
 
+public:
 int release_year;
 string customer;
 int speed;
@@ -23,21 +23,20 @@ void car :: printinfo(){
     cout<<"speed=";
     cout<<speed<<endl;
     };
-int car :: accelarate(int speed){
-    for(int i=0;i<5;i++)
-    {
-        speed=speed+10;
-    }
-    cout<<"The Accelerated speed is:"<<speed<<endl;
+int car :: accelarate(int uspeed){
+    
+        uspeed=uspeed+10;
+    cout<<"The Accelerated speed is:"<<uspeed<<endl;
+    return uspeed;
 }
 
-int car :: brake(int speed){
-    for(int i=0;i<5;i++)
-    {
-        if(speed>0){
-        speed=speed-10;}
+int car :: brake(int dspeed){
+    
+        if(dspeed>0){
+        dspeed=dspeed-10;
     }
-    cout<<"The Decelerated speed is:"<<speed<<endl;
+    cout<<"The Decelerated speed is:"<<dspeed<<endl;
+    return dspeed;
 }
 
 int main() {
@@ -55,14 +54,23 @@ int main() {
     };
     
     for(int i=0;i<n;i++){
-
+        cout<<"\n For car "<<i+1<<endl;
         if(arr[i].speed > 0){
-        arr[i].printinfo();
-        arr[i].accelarate(arr[i].speed);
-        arr[i].brake(arr[i].speed);
-        }
+            
+            arr[i].printinfo();
+            int uspeed=arr[i].accelarate(arr[i].speed);
+            for(int j=0;j<4;j++)
+            {
+            uspeed=arr[i].accelarate(uspeed);
+            }
+            int dspeed=arr[i].brake(uspeed);
+            for(int j=0;j<4;j++)
+            {
+            dspeed=arr[i].brake(dspeed);
+            }
+            }
         else 
-        cout<<":( \n enter valid speed"<<endl;
+        cout<<":( \n enter valid speed";
     }
 
 }
