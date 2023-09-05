@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+class car{
+    public:
+int release_year;
+string customer;
+int speed;
+
+public:
+
+void getdata(){
+    cout<<"relyear=";
+    cout<<release_year<<endl;
+    cout<<"customer=";
+    cout<<customer<<endl;
+    cout<<"speed=";
+    cout<<speed<<endl;
+    }
+int accelarate(int uspeed){
+        uspeed=uspeed+10;
+    cout<<"the acc speed is:"<<uspeed<<endl;
+    return uspeed;
+}
+
+int brake(int dspeed){
+        if(dspeed>0){
+        dspeed=dspeed-10;}
+    cout<<"the decc speed is:"<<dspeed<<endl;
+    return dspeed;
+}
+car(int r, string c)
+{
+    release_year =r;
+    customer=c;
+    cout<<"constructor called"<<endl;
+
+    //return speed;
+}
+
+~car()
+{
+    cout<<"destructor called";
+}
+
+};
+
+int main() {
+
+    car a(2019,"BMW");
+    a.speed = 0;
+    //int temp=a.constructor(2019,"totata");
+    /*a.release_year=2019;
+    a.customer = "toyota";
+    a.speed = 40;*/
+
+    a.getdata();
+    int uspeed=a.accelarate(a.speed);
+    for(int j=0;j<4;j++)
+    {
+    uspeed=a.accelarate(uspeed);
+    }
+    int dspeed=a.brake(uspeed);
+    for(int j=0;j<4;j++)
+    {
+    dspeed=a.brake(dspeed);
+    }
+
+}
